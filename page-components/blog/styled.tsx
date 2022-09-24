@@ -39,7 +39,7 @@ export const GridOne = styled.div`
   }
   img {
     margin-bottom: 2rem;
-    text-align: left;
+text-align: left;
   }
   @media screen and (max-width: 1024px) {
     img {

@@ -9,6 +9,7 @@
 import { Paragraph, H1, Row, Column } from '@components'
 
 
+
  function urlFor (source) {
   return imageUrlBuilder(client).image(source)
 }
@@ -42,7 +43,9 @@ const BlogPost = ({ blog }) => {
         <Column key={id}>
         <H1>{title}</H1>
         <Row> {mainImage && (
-          <img src={urlFor(mainImage) .url()} />
+          <picture>
+                <img src={urlFor(mainImage) .url()} />
+          </picture>
               )}</Row>
         <PortableText
         value={body}

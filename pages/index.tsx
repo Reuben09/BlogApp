@@ -9,7 +9,7 @@ import {
   HomeContainer,
   BlogGrid,
   Grid,
-  GridImage
+  GridImage 
 } from "@page-components";
 
 function urlFor (source) {
@@ -41,9 +41,9 @@ const Home: React.FC<{
             <>
             <Link href={`blogPost/${slug}`} passHref>
             <Grid>
-            <GridImage height="12rem" margin="0 0 0.3rem 0">
-            {mainImage && (
-          <img src={urlFor(mainImage) .url()} />
+              <GridImage height="12rem" margin="0 0 0.3rem 0">
+              {mainImage && (
+                 <img src={urlFor(mainImage) .url()} />
               )}
             </GridImage>
             <Row margin="0 0 0.2rem 0">
