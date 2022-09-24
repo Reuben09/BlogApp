@@ -27,7 +27,9 @@ export const Modal: React.FC<{
            .then(() => {
             toast.success('Email received')
            })
-           resetForm({ values: "" })
+           resetForm({ values: {
+             email: ""
+           }  })
         },
         validate: (values) => {
           const errors = {};

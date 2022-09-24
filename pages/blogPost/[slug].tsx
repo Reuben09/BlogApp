@@ -49,7 +49,7 @@ const BlogPost = ({ blog }) => {
           <picture>
                 <Image
                  src={urlFor(mainImage) .url()} 
-                 alt=""
+                 alt="main"
                  width={400}
                  height={300}/>
           </picture>
