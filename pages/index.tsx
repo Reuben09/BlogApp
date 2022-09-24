@@ -19,7 +19,8 @@ function urlFor (source: SanityImageSource | FC<{}>) {
   return imageUrlBuilder(client).image(source)
 }
 
-type postProps = {
+
+const Home: React.FC<{
   post: {
     title: string;
     slug: string;
@@ -28,8 +29,7 @@ type postProps = {
     description: string;
     publishedAt: string;
   }[];
-}
-const Home = ({post}) => {
+}> =({post}) => {
 
   return (
     <>

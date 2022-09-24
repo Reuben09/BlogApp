@@ -34,16 +34,16 @@ const ptComponents = {
   }
 }
 
-type postProps = {
+
+
+const BlogPost: React.FC<{
   blog: {
     id: any; 
     title: any; 
     mainImage: any; 
     body?: never[] | undefined;
   }[]
-}
-
-const BlogPost = ({ blog }) => {
+}> = ({ blog }) => {
   
   return(
   <>
