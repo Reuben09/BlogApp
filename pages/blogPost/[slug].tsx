@@ -8,10 +8,11 @@
 } from "@page-components";
 import { Paragraph, H1, Row, Column } from '@components'
 import Image from 'next/image'
+import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 
 
 
- function urlFor (source) {
+ function urlFor (source: SanityImageSource) {
   return imageUrlBuilder(client).image(source)
 }
 
@@ -40,7 +41,7 @@ const BlogPost = ({ blog }) => {
   <>
   <BlogContainer>
   <GridOne>
-    {blog.map((item)=> {
+    {blog.map((item: { id: any; title: any; mainImage: any; body?: never[] | undefined; })=> {
       const { id, title, mainImage, body = []} = item;
       return(
         <Column key={id}>
@@ -71,12 +72,12 @@ export async function getStaticPaths(){
     const paths = await client.fetch(`*[_type == "post" && defined(slug.current)][].slug.current`)
     
     return {
-        paths: paths.map((slug) => ({params: {slug}})),
+        paths: paths.map((slug: any) => ({params: {slug}})),
         fallback: true,
       }
 }
 
-export async function getStaticProps(context){
+export async function getStaticProps(context: { params: any; }){
   const { params } = context
   const post = await client.fetch(`
     *[_type == "post" && slug.current == "${params.slug}"]
