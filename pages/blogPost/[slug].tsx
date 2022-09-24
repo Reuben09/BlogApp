@@ -6,10 +6,9 @@
   BlogContainer,
   GridOne
 } from "@page-components";
-import { Paragraph, H1, Row, Column } from '@components'
+import { H1, Row, Column } from '@components'
 import Image from 'next/image'
 import { SanityImageSource } from '@sanity/image-url/lib/types/types';
-
 
 
  function urlFor (source: SanityImageSource) {
@@ -35,13 +34,22 @@ const ptComponents = {
   }
 }
 
-const BlogPost = ({ blog }) => {
+
+
+const BlogPost: React.FC<{
+  blog: {
+    id: any; 
+    title: any; 
+    mainImage: any; 
+    body?: never[] | undefined;
+  }[]
+}> = ({ blog }) => {
   
   return(
   <>
   <BlogContainer>
   <GridOne>
-    {blog.map((item: { id: any; title: any; mainImage: any; body?: never[] | undefined; })=> {
+    {blog.map((item)=> {
       const { id, title, mainImage, body = []} = item;
       return(
         <Column key={id}>

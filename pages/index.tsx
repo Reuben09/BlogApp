@@ -13,10 +13,12 @@ import {
 } from "@page-components";
 import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 import { FC } from 'react';
+import { type } from 'os';
 
 function urlFor (source: SanityImageSource | FC<{}>) {
   return imageUrlBuilder(client).image(source)
 }
+
 
 const Home: React.FC<{
   post: {
