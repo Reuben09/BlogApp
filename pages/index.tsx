@@ -11,8 +11,10 @@ import {
   Grid,
   GridImage 
 } from "@page-components";
+import { SanityImageSource } from '@sanity/image-url/lib/types/types';
+import { FC } from 'react';
 
-function urlFor (source) {
+function urlFor (source: SanityImageSource | FC<{}>) {
   return imageUrlBuilder(client).image(source)
 }
 
