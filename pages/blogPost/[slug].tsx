@@ -21,11 +21,13 @@ const ptComponents = {
       if (!value?.asset?._ref) {
         return null
       }
+
       return (
-        <img
+             <Image
           alt={value.alt || ' '}
-          loading="lazy"
           src={urlFor(value).width(320).height(240).fit('max').auto('format')}
+          width={100}
+          height={100}
         />
       )
     }
@@ -47,6 +49,7 @@ const BlogPost = ({ blog }) => {
           <picture>
                 <Image
                  src={urlFor(mainImage) .url()} 
+                 alt="main"
                  width={400}
                  height={300}/>
           </picture>
