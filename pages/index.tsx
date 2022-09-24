@@ -45,8 +45,8 @@ const Home: React.FC<{
               {mainImage && (
                  <Image
                   src={urlFor(mainImage) .url() } 
-                  width={500}
-                  height={500}/>
+                  width={400}
+                  height={210}/>
               )}
             </GridImage>
             <Row margin="0 0 0.2rem 0">
