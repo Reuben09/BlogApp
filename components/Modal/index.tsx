@@ -32,7 +32,10 @@ export const Modal: React.FC<{
            }  })
         },
         validate: (values) => {
-          const errors = {};
+          const errors = {
+            email: ""
+          };
+
           if (!values.email) {
             errors.email = "Required";
             toast.error(errors.email);
