@@ -13,12 +13,13 @@ import {
 } from "@page-components";
 import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 import { FC } from 'react';
+import { type } from 'os';
 
 function urlFor (source: SanityImageSource | FC<{}>) {
   return imageUrlBuilder(client).image(source)
 }
 
-const Home: React.FC<{
+type postProps = {
   post: {
     title: string;
     slug: string;
@@ -27,7 +28,8 @@ const Home: React.FC<{
     description: string;
     publishedAt: string;
   }[];
-}> =({post}) => {
+}
+const Home = ({post}) => {
 
   return (
     <>
