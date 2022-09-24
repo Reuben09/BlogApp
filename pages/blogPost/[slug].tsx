@@ -7,6 +7,7 @@
   GridOne
 } from "@page-components";
 import { Paragraph, H1, Row, Column } from '@components'
+import Image from 'next/image'
 
 
 
@@ -21,10 +22,12 @@ const ptComponents = {
         return null
       }
       return (
-        <img
+        <Image
           alt={value.alt || ' '}
           loading="lazy"
           src={urlFor(value).width(320).height(240).fit('max').auto('format')}
+          width={500}
+          height={500}
         />
       )
     }
@@ -44,7 +47,10 @@ const BlogPost = ({ blog }) => {
         <H1>{title}</H1>
         <Row> {mainImage && (
           <picture>
-                <img src={urlFor(mainImage) .url()} />
+                <Image
+                 src={urlFor(mainImage) .url()} 
+                 width={500}
+                 height={500}/>
           </picture>
               )}</Row>
         <PortableText

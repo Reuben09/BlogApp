@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { LandingLayout } from "@layouts";
 import imageUrlBuilder from '@sanity/image-url'
 import { Paragraph, H1, Row } from '@components'
-
+import Image from 'next/image'
 
 import {
   HomeContainer,
@@ -43,7 +43,10 @@ const Home: React.FC<{
             <Grid>
               <GridImage height="12rem" margin="0 0 0.3rem 0">
               {mainImage && (
-                 <img src={urlFor(mainImage) .url()} />
+                 <Image
+                  src={urlFor(mainImage) .url() } 
+                  width={500}
+                  height={500}/>
               )}
             </GridImage>
             <Row margin="0 0 0.2rem 0">
