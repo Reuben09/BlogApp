@@ -78,11 +78,24 @@ const BlogPost = ({blog} : blogProps) => {
  }
 
 export async function getStaticPaths(){
-    const paths = await client.fetch(`*[_type == "post" && defined(slug.current)][].slug.current`)
+    // const paths = await client.fetch(`*[_type == "post" && defined(slug.current)][].slug.current`)
     
     return {
-        paths: paths.map((slug: any) => ({params: {slug}})),
-        fallback: true,
+        paths: [
+          {
+            params: { slug: '10-things-you-can-build-with-javascript'},
+          },
+          {
+            params: { slug: 'learn-javascript-with-me'},
+          },
+          {
+            params: { slug: '9-things-you-can-do-with-python'},
+          },
+          {
+            params: { slug: 'how-to-write-cleaner-conditioners-with-guard-clause'},
+          },
+        ],
+        fallback: false,
       }
 }
 

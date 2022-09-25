@@ -12,7 +12,7 @@ import {
 } from "@page-components";
 import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 import { FC } from 'react';
-import { postProps } from "@types";
+import { postProps } from "@types"
 
 function urlFor (source: SanityImageSource | FC<{}>) {
   return imageUrlBuilder(client).image(source)
