@@ -15,35 +15,37 @@ import { SanityImageSource } from '@sanity/image-url/lib/types/types';
   return imageUrlBuilder(client).image(source)
 }
 
-const ptComponents = {
-  types: {
-    image: ({ value }) => {
-      if (!value?.asset?._ref) {
-        return null
-      }
 
-      return (
-             <Image
-          alt={value.alt || ' '}
-          src={urlFor(value).width(320).height(240).fit('max').auto('format')}
-          width={100}
-          height={100}
-        />
-      )
-    }
-  }
-}
+// const ptComponents = {
+//   types: {
+//     image: ({ value}) => {
+//       if (!value?.asset?._ref) {
+//         return null
+//       }
+
+//       return (
+//              <img
+//           alt={value.alt || ' '}
+//           src={urlFor(value).width(320).height(240).fit('max').auto('format')}
+//           width={100}
+//           height={100}
+//         />
+//       )
+//     }
+//   }
+// }
 
 
-
-const BlogPost: React.FC<{
+type blogProps = {
   blog: {
     id: any; 
     title: any; 
     mainImage: any; 
     body?: never[] | undefined;
-  }[]
-}> = ({ blog }) => {
+  }[];
+}
+
+const BlogPost = ({blog} : blogProps) => {
   
   return(
   <>
@@ -65,7 +67,7 @@ const BlogPost: React.FC<{
               )}</Row>
         <PortableText
         value={body}
-        components={ptComponents}
+        // components={ptComponents}
       />
         </Column>
       )

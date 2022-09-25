@@ -13,14 +13,12 @@ import {
 } from "@page-components";
 import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 import { FC } from 'react';
-import { type } from 'os';
 
 function urlFor (source: SanityImageSource | FC<{}>) {
   return imageUrlBuilder(client).image(source)
 }
 
-
-const Home: React.FC<{
+type postProps = {
   post: {
     title: string;
     slug: string;
@@ -29,7 +27,9 @@ const Home: React.FC<{
     description: string;
     publishedAt: string;
   }[];
-}> =({post}) => {
+}
+
+const Home = ({post}: postProps) => {
 
   return (
     <>
@@ -48,6 +48,7 @@ const Home: React.FC<{
               <GridImage height="12rem" margin="0 0 0.3rem 0">
               {mainImage && (
                  <Image
+                 alt="main"
                   src={urlFor(mainImage) .url() } 
                   width={400}
                   height={210}/>
