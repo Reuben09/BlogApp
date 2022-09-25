@@ -4,7 +4,6 @@ import { LandingLayout } from "@layouts";
 import imageUrlBuilder from '@sanity/image-url'
 import { Paragraph, H1, Row } from '@components'
 import Image from 'next/image'
-
 import {
   HomeContainer,
   BlogGrid,
@@ -13,21 +12,12 @@ import {
 } from "@page-components";
 import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 import { FC } from 'react';
+import { postProps } from "@types";
 
 function urlFor (source: SanityImageSource | FC<{}>) {
   return imageUrlBuilder(client).image(source)
 }
 
-type postProps = {
-  post: {
-    title: string;
-    slug: string;
-    mainImage: React.FC;
-    estimatedReadingTime: number;
-    description: string;
-    publishedAt: string;
-  }[];
-}
 
 const Home = ({post}: postProps) => {
 

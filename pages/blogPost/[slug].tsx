@@ -1,15 +1,15 @@
- import client from '../../client'
- import imageUrlBuilder from '@sanity/image-url'
- import {PortableText} from '@portabletext/react'
- import { LandingLayout } from "@layouts";
- import {
+ import { Column, H1, Row } from '@components';
+import { LandingLayout } from "@layouts";
+import {
   BlogContainer,
   GridOne
 } from "@page-components";
-import { H1, Row, Column } from '@components'
-import Image from 'next/image'
+import { PortableText } from '@portabletext/react';
+import imageUrlBuilder from '@sanity/image-url';
 import { SanityImageSource } from '@sanity/image-url/lib/types/types';
-
+import Image from 'next/image';
+import client from '../../client';
+import { blogProps } from "@types";
 
  function urlFor (source: SanityImageSource) {
   return imageUrlBuilder(client).image(source)
@@ -19,7 +19,7 @@ import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 type valueProps = {
   value: {
      asset?: {
-      _ref: string
+      _ref: string | undefined
      };
      alt: string;
   }
@@ -35,7 +35,7 @@ const ptComponents = {
         <img
           alt={value.alt || ' '}
           loading="lazy"
-          src={urlFor(value).width(320).height(240).fit('max').auto('format')}
+          src={urlFor(value.asset).width(320).height(240).fit('max').auto('format')}
         />
       )
     }
@@ -43,15 +43,6 @@ const ptComponents = {
 }
 
 
-
-type blogProps = {
-  blog: {
-    id: any; 
-    title: any; 
-    mainImage: any; 
-    body?: never[] | undefined;
-  }[];
-}
 
 const BlogPost = ({blog} : blogProps) => {
   
