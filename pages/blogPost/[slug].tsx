@@ -10,23 +10,24 @@ import { H1, Row, Column } from '@components'
 import Image from 'next/image'
 import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 
+
  function urlFor (source: SanityImageSource) {
   return imageUrlBuilder(client).image(source)
 }
 
 
-// type valueProps = {
-//   value: {
-//      asset?: {
-//       _ref: string;
-//      };
-//      alt: string;
-//   }
-// }
+type valueProps = {
+  value: {
+     asset?: {
+      _ref: string
+     };
+     alt: string;
+  }
+}
 
 const ptComponents = {
   types: {
-    image: ({ value }) => {
+    image: ({value} : valueProps) => {
       if (!value?.asset?._ref) {
         return null
       }
@@ -40,6 +41,8 @@ const ptComponents = {
     }
   }
 }
+
+
 
 type blogProps = {
   blog: {
