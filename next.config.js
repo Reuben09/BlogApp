@@ -6,6 +6,7 @@ const nextConfig = {
     domains: ['cdn.sanity.io'],
   }
 }
-
+// const withImages = require('next-images')
+// module.exports = withImages()
 
 module.exports = nextConfig
