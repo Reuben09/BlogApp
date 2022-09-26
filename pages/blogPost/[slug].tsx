@@ -56,13 +56,9 @@ const BlogPost = ({blog} : blogProps) => {
         <Column key={id}>
         <H1>{title}</H1>
         <Row> {mainImage && (
-          <picture>
-                <Image
+                <img
                  src={urlFor(mainImage) .url()} 
-                 alt="main"
-                 width={400}
-                 height={300}/>
-          </picture>
+                 alt="main"/>
               )}</Row>
         <PortableText
         value={body}
@@ -78,24 +74,20 @@ const BlogPost = ({blog} : blogProps) => {
  }
 
 export async function getStaticPaths(){
-    // const paths = await client.fetch(`*[_type == "post" && defined(slug.current)][].slug.current`)
+  const data = await client.fetch(`*[_type == "post"]{
+    "slug":slug.current}`)
     
-    return {
-        paths: [
-          {
-            params: { slug: '10-things-you-can-build-with-javascript'},
-          },
-          {
-            params: { slug: 'learn-javascript-with-me'},
-          },
-          {
-            params: { slug: '9-things-you-can-do-with-python'},
-          },
-          {
-            params: { slug: 'how-to-write-cleaner-conditioners-with-guard-clause'},
-          },
-        ],
-        fallback: false,
+    const paths = data.map((post: { slug: any; }) => {
+      return {
+         params: {
+          slug: `${post.slug}` 
+         }
+      }
+    })
+        
+        return{
+          paths,
+          fallback: false,
       }
 }
 
