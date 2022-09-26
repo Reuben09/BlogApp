@@ -33,15 +33,13 @@ const Home = ({post}: postProps) => {
           const {title, slug, mainImage, estimatedReadingTime, description, publishedAt} = item
           return(
             <>
-            <Link href={`blogPost/${slug}`} passHref>
+            <Link key={slug} href={`blogPost/${slug}`} passHref>
             <Grid>
               <GridImage height="12rem" margin="0 0 0.3rem 0">
               {mainImage && (
-                 <Image
+                 <img
                  alt="main"
-                  src={urlFor(mainImage) .url() } 
-                  width={400}
-                  height={210}/>
+                  src={urlFor(mainImage) .url() }/>
               )}
             </GridImage>
             <Row margin="0 0 0.2rem 0">
