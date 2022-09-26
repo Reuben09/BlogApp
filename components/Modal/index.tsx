@@ -2,56 +2,47 @@ import { db } from '@firebase'
 import { collection, addDoc } from 'firebase/firestore';
 import toast, { Toaster } from 'react-hot-toast';
 import 'react-toastify/dist/ReactToastify.css';
-import { useFormik } from "formik";
 import { NewsLetter, Form, FormImageContainer,ModalCancel} from './styled'
 import { FaTimes } from "react-icons/fa";
 import { Paragraph } from '@components'
 import Image from 'next/image'
+import { useState } from 'react'
 
 export const Modal: React.FC<{
     hideModal: () => void;
   }> = ({ hideModal }) => {
     
-   // collection ref
+    const [blogEmail, setBlogEmail] = useState("");
+    
+    // collection ref
    const colRef = collection(db, 'blogMails');
-  
-      // formik
-      const formik = useFormik({
-        initialValues: {
-          email: ""
-        },
-        onSubmit: (values, {resetForm}) => {
-          addDoc(colRef, {
-            email: values.email
-           })
-           .then(() => {
-            toast.success('Email received')
-           })
-           resetForm({ values: {
-             email: ""
-           }  })
-        },
-        validate: (values) => {
-          const errors = {
-            email: ""
-          };
 
-          if (!values.email) {
-            errors.email = "Required";
-            toast.error(errors.email);
-          } else if (
-            !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
-          ) {
-            errors.email = "Invalid email address";
-          }
-          return errors;
-        }
-      });
+    const handleForm = (e: { preventDefault: () => void; })=> {
+      e.preventDefault();
+      if(!blogEmail){
+        return toast.error(" This field is required")
+      } 
+      if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(blogEmail)){
+         return toast.error("invalid email format")
+      }
+      if (blogEmail){
+        addDoc(colRef, {
+          email: blogEmail
+         })
+         .then(() => {
+          toast.success('Email received')
+          setBlogEmail('');
+         })
+      }
+      
+    }
+   
   
+      
   
     return (
       <NewsLetter>
-        <Form onSubmit={formik.handleSubmit}>
+        <Form>
         <Toaster />
           <FormImageContainer>
             <picture>
@@ -68,8 +59,8 @@ export const Modal: React.FC<{
             <Paragraph style={{color: "#f8646c"}} size="lg" margin="0 0 0.3rem 0" align="center">from the blog</Paragraph>
             <Paragraph align="center" margin="0 0 1rem 0">Give us your email, we'll do the rest</Paragraph>
           </div>
-          <input type="email" placeholder="Your email" value={formik.values.email} name="email" onChange={formik.handleChange}/>
-          <button type="submit">SIGN UP</button>
+          <input type="email" placeholder="Your email" onChange={(e)=> setBlogEmail(e.target.value)} name="email" value={blogEmail}/>
+          <button type="submit" onClick={handleForm}>SIGN UP</button>
           <Paragraph size="sm" align='center'>We'll only send you awesome contents, never spam </Paragraph>
           <ModalCancel onClick={hideModal}>
             <FaTimes />
