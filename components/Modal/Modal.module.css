@@ -4,5 +4,5 @@
 }
 .form{
     background: #f2f3f7;
-    @apply flex justify-center flex-col rounded-lg relative py-8 px-4;
+    @apply flex justify-center flex-col rounded-lg relative py-8 px-3;
 }

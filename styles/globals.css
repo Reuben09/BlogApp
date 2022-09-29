@@ -43,6 +43,7 @@ p {
 img {
   margin-bottom: 1rem;
 text-align: left;
+    height: auto;
 }
 
 @media screen and (max-width: 1024px) {
