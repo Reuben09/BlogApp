@@ -1,4 +1,8 @@
 .color{
     color: #1D3153;
-    @apply prose;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    @apply prose prose-headings:text-[#1D3153] ;
 }

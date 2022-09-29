@@ -28,7 +28,7 @@ const ptComponents = {
       }
       return (
         <>
-        <div style={{height: "20rem", textAlign: "left", display: "flex", alignItems: "flex-start", justifyContent: "flex-start"}}>
+        <div style={{height: "20rem", textAlign: "left", display: "flex", alignItems: "flex-start", justifyContent: "flex-start", marginBottom: "2rem"}}>
         <img
           alt={value.alt || ' '}
           loading="lazy"
@@ -56,7 +56,8 @@ const BlogPost = ({blog} : blogProps) => {
         <div className="flex"> {mainImage && (
                 <img
                  src={urlFor(mainImage) .url()} 
-                 alt="main"/>
+                 alt="main"
+                 className="w-full"/>
               )}</div>
           <div className= {styles.color}>
         <PortableText

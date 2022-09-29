@@ -16,10 +16,10 @@ export const Navbar: React.FC<{
            </button>
            <ul className="flex lg:flex hidden">
            <Link href="/">
-             <li className='px-4 text-lg font-medium'>Home</li>
+             <li className='px-4 text-lg font-medium cursor-pointer'>Home</li>
            </Link>
            <Link href="/about">
-           <li className='px-4 text-lg font-medium'>About</li>
+           <li className='px-4 text-lg font-medium cursor-pointer'>About</li>
            </Link>
            </ul>
          </div>

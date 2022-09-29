@@ -31,17 +31,17 @@ export const Header = () => {
 
 export const Footer = ()=> {
 return(
-  <footer className="h-32 mt-24 flex flex-col items-center justify-center ">
+  <footer className="h-32 flex flex-col items-center justify-center" style={{marginTop:"4rem"}}>
       <p>©2022 Reuben09</p>
       <div className="flex">
-        <p className="px-2">
-          <a href="#">Twitter</a>
+        <p className="px-4" style={{textDecoration: "underline"}}>
+          <a href="https://twitter.com/reuben09_" className="underline">Twitter</a>
         </p>
-        <p className="px-2">
-          <a href="#">LinkedIn</a>
+        <p className="px-4" style={{textDecoration: "underline"}}>
+          <a href="https://www.linkedin.com/in/chukwuka_reuben-54620a212" className="underline">LinkedIn</a>
         </p>
-        <p className="px-2 underline">
-          <a href="#" className="underline">Github</a>
+        <p className="px-4" style={{textDecoration: "underline"}}>
+          <a href="https://github.com/Reuben09">Github</a>
         </p>
       </div>
     </footer>
