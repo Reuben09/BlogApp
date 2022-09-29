@@ -6,3 +6,6 @@
     flex-direction: column;
     @apply prose prose-headings:text-[#1D3153] prose-ol:text-[#1D3153] prose-blockquote:text-[#1D3153] ;
 }
+.imageContainer{
+    @apply flex text-left h-80 justify-start items-start mb-8;
+}

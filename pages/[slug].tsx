@@ -2,22 +2,12 @@ import { LandingLayout } from "@layouts";
 import { PortableText } from '@portabletext/react';
 import imageUrlBuilder from '@sanity/image-url';
 import { SanityImageSource } from '@sanity/image-url/lib/types/types';
-import client from '../../client';
-import { blogProps } from "@types";
-import styles from '../../styles/Slug.module.css'
+import client from '../client';
+import { blogProps, valueProps } from "@types";
+import styles from '../styles/Slug.module.css'
 
  function urlFor (source: SanityImageSource) {
   return imageUrlBuilder(client).image(source)
-}
-
-
-type valueProps = {
-  value: {
-     asset?: {
-      _ref: string | undefined
-     };
-     alt: string;
-  }
 }
 
 const ptComponents = {
@@ -28,7 +18,7 @@ const ptComponents = {
       }
       return (
         <>
-        <div style={{height: "20rem", textAlign: "left", display: "flex", alignItems: "flex-start", justifyContent: "flex-start", marginBottom: "2rem"}}>
+        <div className={styles.imageContainer}>
         <img
           alt={value.alt || ' '}
           loading="lazy"

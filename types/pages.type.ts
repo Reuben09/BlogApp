@@ -18,3 +18,12 @@ export type blogProps = {
     }[];
   }
   
+  export type valueProps = {
+    value: {
+       asset?: {
+        _ref: string | undefined
+       };
+       alt: string;
+    }
+  }
+  
