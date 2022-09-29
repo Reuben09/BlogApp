@@ -7,7 +7,7 @@
 .subscribeButton{
     background: #f8646c;
     border: 1px solid #f8646c;
-    @apply rounded-lg py-3 px-11 text-white text-lg
+    @apply rounded-lg py-3 px-8 text-white text-lg
 }
 .menuButton{
     @apply text-2xl font-medium lg:hidden block;

@@ -51,7 +51,7 @@ const BlogPost = ({blog} : blogProps) => {
       const { id, title, mainImage, body = []} = item;
       return(
         <div className="flex flex-col" key={id}>
-        <h1 className='font-bold text-left text-3xl mb-4'>{title}</h1>
+        <h1 className='font-bold lg:text-left text-center text-2xl mb-4'>{title}</h1>
         <div className="flex"> {mainImage && (
                 <img
                  src={urlFor(mainImage) .url()} 
