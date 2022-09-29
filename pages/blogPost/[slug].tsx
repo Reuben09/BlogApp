@@ -111,7 +111,8 @@ export async function getStaticProps(context: { params: any; }){
   return {
     props: {
       blog: post
-    }
+    },
+    revalidate: 10,
   }
 }
 
