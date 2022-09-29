@@ -57,10 +57,12 @@ const BlogPost = ({blog} : blogProps) => {
                  src={urlFor(mainImage) .url()} 
                  alt="main"/>
               )}</div>
+          <div className="prose">
         <PortableText
         value={body}
         components={ptComponents}
       />
+      </div>
         </div>
       )
     })}
