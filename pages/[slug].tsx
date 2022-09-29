@@ -5,6 +5,7 @@ import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 import client from '../client';
 import { blogProps, valueProps } from "@types";
 import styles from '../styles/Slug.module.css'
+import { ReactElement, JSXElementConstructor, ReactFragment, ReactPortal } from "react";
 
  function urlFor (source: SanityImageSource) {
   return imageUrlBuilder(client).image(source)
@@ -26,8 +27,8 @@ const ptComponents = {
         </div>
         </>
       )
+      }
     }
-  }
 }
 
 
