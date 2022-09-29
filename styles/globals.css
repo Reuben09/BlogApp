@@ -24,9 +24,13 @@ li {
   font-family: "DM Sans", sans-serif;
   font-size: 1.1rem;
 }
-
+li{
+  display: flex;
+  color: #1D3153;
+}
 h1 {
  @apply font-bold lg:text-left text-center text-2xl mb-4;
+ color: #1D3153;
 }
 
 p {
