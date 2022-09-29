@@ -26,7 +26,7 @@ const Home = ({post}: postProps) => {
           const {title, slug, mainImage, estimatedReadingTime, description, publishedAt} = item
           return(
             <>
-            <Link key={slug} href={`blogPost/${slug}`} passHref>
+            <Link key={slug} href={`/${slug}`} passHref>
             <div className='lg:mb-4 flex flex-col p-4 rounded-lg cursor-pointer' style={{border: "1px solid #1D3153"}}>
               <div className="flex h-48 mb-1">
               {mainImage && (
