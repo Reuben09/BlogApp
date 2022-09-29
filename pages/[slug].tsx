@@ -73,7 +73,6 @@ export async function getStaticPaths(){
          params: {
           slug: `${post.slug}` 
          },
-         revalidate: 10,
       }
     })
         
