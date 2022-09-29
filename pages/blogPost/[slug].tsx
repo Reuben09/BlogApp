@@ -1,13 +1,7 @@
- import { Column, H1, Row } from '@components';
 import { LandingLayout } from "@layouts";
-import {
-  BlogContainer,
-  GridOne
-} from "@page-components";
 import { PortableText } from '@portabletext/react';
 import imageUrlBuilder from '@sanity/image-url';
 import { SanityImageSource } from '@sanity/image-url/lib/types/types';
-import Image from 'next/image';
 import client from '../../client';
 import { blogProps } from "@types";
 
@@ -48,27 +42,27 @@ const BlogPost = ({blog} : blogProps) => {
   
   return(
   <>
-  <BlogContainer>
-  <GridOne>
+  <div className="w-full flex items-center justify-center h-full lg:px-16 px-4 mt-12">
+  <div className='flex items-center justify-center text-left' style={{width: "40rem"}}>
     {blog.map((item)=> {
       const { id, title, mainImage, body = []} = item;
       return(
-        <Column key={id}>
-        <H1>{title}</H1>
-        <Row> {mainImage && (
+        <div className="flex flex-col" key={id}>
+        <h1 className='font-bold text-left text-3xl mb-4'>{title}</h1>
+        <div className="flex"> {mainImage && (
                 <img
                  src={urlFor(mainImage) .url()} 
                  alt="main"/>
-              )}</Row>
+              )}</div>
         <PortableText
         value={body}
         components={ptComponents}
       />
-        </Column>
+        </div>
       )
     })}
-  </GridOne>
-  </BlogContainer>
+  </div>
+  </div>
   </>
   )
  }

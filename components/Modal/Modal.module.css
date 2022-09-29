@@ -1,0 +1,8 @@
+.container{
+    background:rgba(0, 0, 0, 0.5);
+    @apply inset-0 h-full w-full fixed z-10 flex justify-center items-center px-8 py-0 visible opacity-100 transition-all;
+}
+.form{
+    background: #f2f3f7;
+    @apply flex justify-center flex-col rounded-lg relative py-8 px-4;
+}

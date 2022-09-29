@@ -1,8 +1,4 @@
 import React, { useState } from "react";
-import {
-  FooterContainer, 
-  FooterLinks
-} from "./styled";
 import {  Navbar, Sidebar, Modal } from '@components'
 
 
@@ -35,19 +31,19 @@ export const Header = () => {
 
 export const Footer = ()=> {
 return(
-  <FooterContainer>
+  <footer className="h-32 mt-24 flex flex-col items-center justify-center ">
       <p>©2022 Reuben09</p>
-      <FooterLinks>
+      <div className="flex">
         <p>
-          <a href="#">Twitter</a>
+          <a className="px-2" href="#">Twitter</a>
         </p>
         <p>
-          <a href="#">LinkedIn</a>
+          <a className="px-2" href="#">LinkedIn</a>
         </p>
         <p>
-          <a href="#">Github</a>
+          <a className="px-2" href="#">Github</a>
         </p>
-      </FooterLinks>
-    </FooterContainer>
+      </div>
+    </footer>
 )
 }
