@@ -2,17 +2,10 @@ import client from '../client'
 import Link from 'next/link'
 import { LandingLayout } from "@layouts";
 import imageUrlBuilder from '@sanity/image-url'
-import { Paragraph, H1, Row } from '@components'
-import Image from 'next/image'
-import {
-  HomeContainer,
-  BlogGrid,
-  Grid,
-  GridImage 
-} from "@page-components";
 import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 import { FC } from 'react';
 import { postProps } from "@types"
+import styles from '../styles/Home.module.css'
 
 function urlFor (source: SanityImageSource | FC<{}>) {
   return imageUrlBuilder(client).image(source)
@@ -23,42 +16,41 @@ const Home = ({post}: postProps) => {
 
   return (
     <>
-    <div>
-    <HomeContainer align="center" justify="center" height="30rem">
-        <H1 size="xl" align="center">Reuben09's Technical Blog</H1>
-        <Paragraph align="center">Providing you solutions to Technical problems in tech</Paragraph>
-    </HomeContainer>
-      <BlogGrid>
+    <div className={styles.hero_container}>
+        <h1 className='text-5xl font-bold text-center m-1'>Reuben09's Technical Blog</h1>
+        <p className='font-normal text-base m-1 text-center'>Providing you solutions to Technical problems in tech</p>
+    </div>
+      <div className={styles.grid_container}>
         {post.map((item)=> {
           const {title, slug, mainImage, estimatedReadingTime, description, publishedAt} = item
           return(
             <>
             <Link key={slug} href={`blogPost/${slug}`} passHref>
-            <Grid>
-              <GridImage height="12rem" margin="0 0 0.3rem 0">
+            <div className='lg:mb-4 flex flex-col p-4 rounded-lg cursor-pointer' style={{border: "1px solid #1D3153"}}>
+              <div className="flex h-48 mb-1">
               {mainImage && (
                  <img
+                 className='object-cover rounded-lg w-full h-full'
                  alt="main"
                   src={urlFor(mainImage) .url() }/>
               )}
-            </GridImage>
-            <Row margin="0 0 0.2rem 0">
-                <H1 size="lg" align="left">{title}</H1>
-              </Row>
-              <Row align="center" justify="flex-start" margin="0 0 0.2rem 0">
-                <Paragraph>{new Date(publishedAt).toDateString()}</Paragraph>
-                <Paragraph margin="0 1rem">--{estimatedReadingTime}mins</Paragraph>
-              </Row>
-              <Row>
-                <Paragraph>{description}</Paragraph>
-              </Row>
-            </Grid>
+            </div>
+            <div className='flex'>
+                <h1 className='font-bold text-left text-2xl'>{title}</h1>
+              </div>
+              <div className="flex text-center justify-start items-center">
+                <p className="text-base font-normal text-left">{new Date(publishedAt).toDateString()}</p>
+                <p className="text-base font-normal mx-4 text-left">--{estimatedReadingTime}mins</p>
+              </div>
+              <div className="flex">
+                <p className="text-base font-normal text-left">{description}</p>
+              </div>
+            </div>
             </Link>
            </>
           )
         })}
-      </BlogGrid>
-    </div>
+      </div>
     </>
   )
 }

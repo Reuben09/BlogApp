@@ -1,0 +1,14 @@
+.container{
+    background: rgba(0, 0, 0, 0.5);
+    @apply inset-0 h-full w-full fixed z-10 flex justify-center items-center px-8 py-0 visible opacity-100 transition-all;
+}
+.sidebar_container{
+    background: #F3F3F9;
+    @apply top-0 bottom-0 left-0 w-3/4 absolute z-20 flex flex-col justify-center items-center;
+}
+.button{
+    @apply top-0 right-0 absolute mt-4 mr-4 text-2xl;
+}
+.link{
+    @apply py-2 px-0 text-lg font-medium cursor-pointer;
+}

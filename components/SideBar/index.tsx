@@ -1,27 +1,27 @@
-import { SideBarContainer, SideBar, Cancel} from './styled'
 import Link from 'next/link'
 import { FaTimes } from "react-icons/fa";
+import styles from './Sidebar.module.css'
 
 export const Sidebar: React.FC<{
     hideSideBar: () => void;
   }> = ({ hideSideBar }) => {
     return (
       <>
-        <SideBarContainer>
-          <SideBar>
-            <Cancel onClick={hideSideBar}>
+        <div className={styles.container}>
+          <div className={styles.sidebar_container}>
+            <button className={styles.button} onClick={hideSideBar}>
               <FaTimes />
-            </Cancel>
+            </button>
             <ul>
             <Link href="/">
-              <li onClick={hideSideBar}>Home</li>
+              <li className={styles.link} onClick={hideSideBar}>Home</li>
             </Link>
             <Link href="/about">
-              <li onClick={hideSideBar}>About</li>
+              <li className={styles.link}  onClick={hideSideBar}>About</li>
             </Link>
             </ul>
-          </SideBar>
-        </SideBarContainer>
+          </div>
+        </div>
       </>
     );
   };
