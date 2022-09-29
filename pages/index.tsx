@@ -17,7 +17,7 @@ const Home = ({post}: postProps) => {
   return (
     <>
     <div className={styles.hero_container}>
-        <h1 className='text-5xl font-bold text-center m-1'>Reuben09's Technical Blog</h1>
+        <h1 className='text-4xl font-bold text-center m-1'>Reuben09's Technical Blog</h1>
         <p className='font-normal text-base m-1 text-center'>Providing you solutions to Technical problems in tech</p>
     </div>
       <div className={styles.grid_container}>

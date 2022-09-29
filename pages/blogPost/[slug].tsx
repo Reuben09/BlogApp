@@ -26,11 +26,14 @@ const ptComponents = {
         return null
       }
       return (
+        <>
+        <div style={{height: "20rem", textAlign: "left", display: "flex", alignItems: "flex-start", justifyContent: "flex-start"}}>
         <img
           alt={value.alt || ' '}
           loading="lazy"
-          src={urlFor(value.asset).width(320).height(240).fit('max').auto('format') .url()}
-        />
+          src={urlFor(value.asset) .url()} style={{width: "100%", height: "100%", objectFit: "contain"}}/>
+        </div>
+        </>
       )
     }
   }
