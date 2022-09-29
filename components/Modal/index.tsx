@@ -59,7 +59,7 @@ export const Modal: React.FC<{
             <p style={{color: "#f8646c"}} className="text-xl mb-2 text-center">from the blog</p>
             <p className="text-center mb-4">Give us your email, we'll do the rest</p>
           </div>
-          <input type="email" placeholder="Your email" onChange={(e)=> setBlogEmail(e.target.value)} name="email" value={blogEmail} className="py-3 mb-2 rounded bg-transparent text-base outline-0" style={{ border: "1px solid #f8646c"}}/>
+          <input type="email" placeholder="Your email" onChange={(e)=> setBlogEmail(e.target.value)} name="email" value={blogEmail} className={styles.input}/>
           <button className="py-3 px-0 w-full rounded mb-4 text-white" style={{background: "#f8646c", border: "1px solid #f8646c"}} type="submit" onClick={handleForm}>SIGN UP</button>
           <p className="text-center text-sm">We'll only send you awesome contents, never spam </p>
           <button className="top-0 right-0 absolute mr-4 mt-4 text-2xl" onClick={hideModal}>

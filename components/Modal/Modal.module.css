@@ -6,3 +6,10 @@
     background: #f2f3f7;
     @apply flex justify-center m-auto flex-col rounded-lg relative py-8 px-4;
 }
+.input{
+    border: 1px solid #f8646c;
+    @apply py-3 mb-2 rounded bg-transparent text-base outline-0;
+}
+.input::placeholder{
+    text-align: center;
+}
