@@ -72,13 +72,14 @@ export async function getStaticPaths(){
       return {
          params: {
           slug: `${post.slug}` 
-         }
+         },
+         revalidate: 10,
       }
     })
         
         return{
           paths,
-          fallback: false,
+          fallback: true,
       }
 }
 
