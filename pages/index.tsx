@@ -14,11 +14,7 @@ function urlFor (source: SanityImageSource | FC<{}>) {
 
 
 const Home = ({post}: postProps) => {
-  const [visible, setVisible] = useState(2);
-  const showMoreItem = () => {
-    setVisible((prevValue) => prevValue + 2);
-  };
-
+  
   return (
     <>
     <div className={styles.hero_container}>
@@ -26,7 +22,7 @@ const Home = ({post}: postProps) => {
         <p className='font-normal text-base m-1 text-center'>Providing you solutions to Technical problems in tech</p>
     </div>
       <div className={styles.grid_container}>
-        {post.slice(0, visible).map((item)=> {
+        {post.map((item)=> {
           const {title, slug, mainImage, estimatedReadingTime, description, publishedAt} = item
           return(
             <>
@@ -56,14 +52,6 @@ const Home = ({post}: postProps) => {
           )
         })}
       </div>
-
-      <div style={{ display: "flex", justifyContent: "center", alignItems: "center", marginBottom: "4rem"}}>
-        <button style={{ background:"transparent", color: "#1D3153", border:"1px solid #1D3153",
-         borderRadius:"0.5rem",
-         cursor: "pointer",
-         padding: "0.5rem"
-         }} onClick={showMoreItem}> See more</button>
-      </div>
     </>
   )
 }
@@ -78,7 +66,8 @@ export async function getStaticProps() {
    return {
     props:{
       post: post
-    } 
+    },
+    revalidate: 10,
    }
 }
 
