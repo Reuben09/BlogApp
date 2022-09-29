@@ -26,11 +26,7 @@ li {
 }
 
 h1 {
-  font-family: "Poppins", sans-serif;
-  text-align: left;
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-  color: #1D3153;
+ @apply font-bold lg:text-left text-center text-2xl mb-4;
 }
 
 p {

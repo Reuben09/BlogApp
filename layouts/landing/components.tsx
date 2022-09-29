@@ -34,14 +34,14 @@ return(
   <footer className="h-32 mt-24 flex flex-col items-center justify-center ">
       <p>©2022 Reuben09</p>
       <div className="flex">
-        <p>
-          <a className="px-2" href="#">Twitter</a>
+        <p className="px-2">
+          <a href="#">Twitter</a>
         </p>
-        <p>
-          <a className="px-2" href="#">LinkedIn</a>
+        <p className="px-2">
+          <a href="#">LinkedIn</a>
         </p>
-        <p>
-          <a className="px-2" href="#">Github</a>
+        <p className="px-2 underline">
+          <a href="#" className="underline">Github</a>
         </p>
       </div>
     </footer>
