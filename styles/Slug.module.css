@@ -1,0 +1,4 @@
+.color{
+    color: #1D3153;
+    @apply prose;
+}
