@@ -6,8 +6,8 @@ import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 import client from '../client';
 import { blogProps, valueProps } from "@types";
 import styles from '../styles/Slug.module.css';
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 
  function urlFor (source: SanityImageSource) {
@@ -35,7 +35,7 @@ const ptComponents = {
         if(!props.value.code){
           return null
         }
-        return <SyntaxHighlighter language={props.value.language || 'text'} style={docco}>{props.value.code}</SyntaxHighlighter>
+        return <SyntaxHighlighter language={props.value.language || 'text'} style={dark}>{props.value.code}</SyntaxHighlighter>
       }
     }
 
