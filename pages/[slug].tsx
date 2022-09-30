@@ -4,8 +4,9 @@ import imageUrlBuilder from '@sanity/image-url';
 import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 import client from '../client';
 import { blogProps, valueProps } from "@types";
-import styles from '../styles/Slug.module.css'
-import { ReactElement, JSXElementConstructor, ReactFragment, ReactPortal } from "react";
+import styles from '../styles/Slug.module.css';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
  function urlFor (source: SanityImageSource) {
   return imageUrlBuilder(client).image(source)
@@ -27,10 +28,16 @@ const ptComponents = {
         </div>
         </>
       )
+      },
+      code: (props: { value: { code: string | string[]; language: any; }; })=> {
+        if(!props.value.code){
+          return null
+        }
+        return <SyntaxHighlighter language={props.value.language || 'text'}>{props.value.code}</SyntaxHighlighter>
       }
     }
-}
 
+  }
 
 
 const BlogPost = ({blog} : blogProps) => {
