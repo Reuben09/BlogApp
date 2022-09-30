@@ -1,5 +1,6 @@
 import { LandingLayout } from "@layouts";
 import { PortableText } from '@portabletext/react';
+import {useRouter} from 'next/router';
 import imageUrlBuilder from '@sanity/image-url';
 import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 import client from '../client';
@@ -41,7 +42,13 @@ const ptComponents = {
 
 
 const BlogPost = ({blog} : blogProps) => {
-  
+
+    const router = useRouter();
+    
+    if(router.isFallback){
+      return <div>loading...</div>
+    }
+    
   return(
   <>
   <div className="w-full flex items-center justify-center h-full lg:px-16 px-4 mt-12">
