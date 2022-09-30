@@ -7,7 +7,7 @@ import client from '../client';
 import { blogProps, valueProps } from "@types";
 import styles from '../styles/Slug.module.css';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { atomDark} from "react-syntax-highlighter/dist/cjs/styles/prism";
 
 
  function urlFor (source: SanityImageSource) {
@@ -35,7 +35,9 @@ const ptComponents = {
         if(!props.value.code){
           return null
         }
-        return <SyntaxHighlighter language={props.value.language || 'text'} style={dark}>{props.value.code}</SyntaxHighlighter>
+        return (
+        <SyntaxHighlighter style={atomDark} language={props.value.language || 'text'}>{props.value.code}</SyntaxHighlighter>
+        )
       }
     }
 
