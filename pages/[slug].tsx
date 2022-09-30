@@ -29,6 +29,12 @@ const ptComponents = {
         </>
       )
       },
+      code: (props: { value: { code: string | string[]; language: any; }; })=> {
+        if(!props.value.code){
+          return null
+        }
+        return <SyntaxHighlighter language={props.value.language || 'text'}>{props.value.code}</SyntaxHighlighter>
+      }
     }
 
   }
