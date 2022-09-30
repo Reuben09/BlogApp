@@ -36,7 +36,11 @@ const ptComponents = {
           return null
         }
         return (
-        <SyntaxHighlighter style={atomDark} language={props.value.language || 'text'}>{props.value.code}</SyntaxHighlighter>
+        <SyntaxHighlighter 
+         lineProps={{style: {wordBreak: 'break-all', whiteSpace: 'pre-wrap'}}}
+         wrapLines={true} 
+         style={atomDark} 
+         language={props.value.language || 'text'}>{props.value.code}</SyntaxHighlighter>
         )
       }
     }
