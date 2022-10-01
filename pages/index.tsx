@@ -57,7 +57,7 @@ const Home = ({post}: postProps) => {
 }
 
 export async function getStaticProps() {
-   const post = await client.fetch(`*[_type == "post"]{title, 
+   const post = await client.fetch(`*[_type == "post"  && publishedAt < now()] | order(publishedAt desc){title, 
     "mainImage": mainImage, 
     "estimatedReadingTime": round(length(pt::text(body)) / 5 / 180 ), 
     "description": excerpt,
